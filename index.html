@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ghost AZE</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body style="background: #121212; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+
+    <h2>Ghost AZE</h2>
+    <input type="text" id="userId" placeholder="ID nömrənizi daxil edin (1001)" style="padding: 10px; margin-bottom: 10px;">
+    <button id="yoxlaBtn" style="padding: 10px 20px; cursor: pointer;">Yoxla</button>
+    <div id="result" style="margin-top: 20px; font-size: 18px;"></div>
+
+    <script>
+        // Bura Supabase-dən götürdüyünüz məlumatları yazın
+        const supabaseUrl = 'https://osewdxbdimyukysvedxt.supabase.co';
+        const supabaseKey = 'sb_publishable_a_fQuJmAZKmjuUaxESqgeQ_LDAHAtge';
+        
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        document.getElementById('yoxlaBtn').addEventListener('click', async () => {
+            const id = document.getElementById('userId').value;
+            const res = document.getElementById('result');
+            
+            res.innerHTML = "Axtarılır...";
+
+            const { data, error } = await supabase
+                .from('ghost')
+                .select('balance')
+                .eq('id', id)
+                .single();
+
+            if (error) {
+                res.innerHTML = "Xəta: " + error.message;
+            } else {
+                res.innerHTML = "Balansınız: " + data.balance + " AZN";
+            }
+        });
+    </script>
+</body>
+</html>
