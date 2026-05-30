@@ -31,7 +31,7 @@
     const supabaseKey = window.location.hostname === 'localhost' ? '' : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     
     // Əgər birbaşa script daxilində işlədəcəksənsə, qeyd dəftərindəki real kodları dırnaqların içinə yaza bilərsən:
-    const supabase = supabaseServer.createClient('https://osewdxbdimyukysvedxt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zZXdkeGJkaW15dWt5c3ZlZHh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNTg5MDIsImV4cCI6MjA5NTczNDkwMn0.r6pL1NLCT1FQXBuKnVeN8hviSTRf8VuwQLYAr_ZVHdM');
+    const supabase = supabaseServer.createClient('https://osewdxbdimyukysvedxt.supabase.co', 'sb_publishable_a_fQuJmAZKmjuUaxESqgeQ_LDAHAtge');
 
     async function checkBalance() {
         const id = document.getElementById('userId').value.trim();
